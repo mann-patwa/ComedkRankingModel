@@ -44,13 +44,13 @@ for (let i = 1; i < 11; i++) {
   var acol = new college(i, {
     cs: {
       branch: "cs",
-      seats: 3,
+      seats: 4,
     },
     ec: {
       branch: "ec",
-      seats: 3,
+      seats: 4,
     },
-    is: { branch: "is", seats: 3 },
+    is: { branch: "is", seats: 4 },
   });
   colleges_list.push(acol);
 }
