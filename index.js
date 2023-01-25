@@ -83,7 +83,6 @@ for (let i = 0; i < student_list.length; i++) {
       selected_part_of_college.seats--;
       break;
     }
-    // }
     // checking if the preference is alloted or to go to next priority
     if (student_list[i].alloted == {}) {
       continue;
