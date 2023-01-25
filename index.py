@@ -9,7 +9,7 @@ class Student():
     def __str__(self):
         print(f"id:{self.id}")
         print(f"rank:{self.rank}")
-        print("prefernces:")
+        print("preferences:")
         for preference in self.preferences:
             print(f"{preference}")
         print(f"alloted:{self.alloted}")
@@ -23,13 +23,17 @@ class College():
 
 def makeStudents(numOfStudents):
     # creating a list to assign ranks
+    ranklist= []
+    for i in range (1,numOfStudents+1):
+        ranklist.append(i)
+    shuffle(ranklist)
     student_list = []
     for i in range(numOfStudents):
         x = randint(0,(len(branch_list)-1))
         y = randint(0,(len(branch_list)-1))
         z = randint(0,(len(branch_list)-1))
 
-        student = Student(i+1,(randint(1,numOfStudents)),{},[
+        student = Student(i+1,ranklist[i],{},[
             {"collegeId" : (randint(1,numOfColleges)),"branch" : branch_list[x] },
             {"collegeId" : (randint(1,numOfColleges)),"branch" : branch_list[y] },
             {"collegeId" : (randint(1,numOfColleges)),"branch" : branch_list[z] }])
@@ -53,7 +57,7 @@ numOfSeats = 2
 branch_list  = ["cs",'ec',"is"]
 studentList = makeStudents(numOfStudents)
 collegeList = makeColleges(numOfColleges,numOfSeats)
-# print((studentList[0].preferences[0])['branch'])
+studentList.sort(key=lambda x: x.rank)
 for student in studentList:
     preferences = student.preferences
     for preference in preferences:
